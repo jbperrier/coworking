@@ -1,0 +1,4 @@
+<h2>New Event</h2>
+<% form_for :event, @event, :url => {:action => 'create'} do |@f| %>
+	<%= render :partial => 'form' %>
+<% end %>

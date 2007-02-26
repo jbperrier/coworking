@@ -1,0 +1,14 @@
+<h3>Name</h3>
+<%= @f.text_field :name %>
+<h3>Date</h3>
+<%= date_select("event", "date") %>
+<h3>Location</h3>
+<select name="event[space_id]">
+	<% for space in @spaces %>
+		<option value="<%= space.id %>"><%= space.name %></option>
+	<% end %>
+</select>
+<h3>Description</h3>
+<%= @f.text_area :description %>
+<br /><br />
+<%= submit_tag 'Save'%>

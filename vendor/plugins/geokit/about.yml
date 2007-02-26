@@ -1,0 +1,8 @@
+summary: Geo distance calculations, distance calculation query support, geocoding for physical and ip addresses.
+version: 0.1
+author_1: Bill Eisenhauer
+homepage_1: http://www.billeisenhauer.com
+author_2: Andre Lewis
+homepage_andre: http://www.earthcode.com
+rails_version: 1.0+
+license: MIT

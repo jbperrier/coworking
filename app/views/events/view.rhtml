@@ -1,0 +1,27 @@
+<h2><%= @event.name %> @ <%= @event.space.name %></h2>
+<h3><%= @event.display_date %> at <%= @event.space.address %></h3>
+<h3 style="color: blue;"><%= flash[:notice] %></h3>
+<div class="yui-g">
+	<div class="yui-u first">
+		<h3>Details</h3>
+		<%= @event.description %>
+	</div>
+	<div class="yui-u">
+		<h3>Map</h3>
+		<script type="text/javascript">
+	    //<![CDATA[
+	    function load() {
+	      if (GBrowserIsCompatible()) {
+	        var map = new GMap2(document.getElementById("map"));
+			map.addControl(new GSmallMapControl());
+			map.addControl(new GMapTypeControl());
+			var point = new GLatLng(<%= GoogleGeocoder.geocode(@event.space.address).ll %>);
+	        map.setCenter(point, 13);
+			map.addOverlay(new GMarker(point));
+	      }
+	    }
+	    //]]>
+	    </script>
+	    <div id="map" style="width: 350px; height: 300px"></div>
+	</div>
+</div>

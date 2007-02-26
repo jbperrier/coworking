@@ -1,0 +1,5 @@
+<h2>Spaces</h2>
+
+<% for space in @spaces %>
+	<%= link_to space.name, "/spaces/view/#{space.id}" %><br />
+<% end %>

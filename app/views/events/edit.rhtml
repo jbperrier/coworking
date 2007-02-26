@@ -1,0 +1,4 @@
+<h2>Editing "<%= @event.name %>"</h2>
+<% form_for :event, @event, :url => {:action => 'update', :id => @event.id} do |@f| %>
+	<%= render :partial => 'form' %>
+<% end %>
