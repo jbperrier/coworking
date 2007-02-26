@@ -17,16 +17,16 @@ h1,h2,h3 {
 }
 
 a {
-	color: #666;
+	color: #1B84F7;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #000;
+	text-decoration: underline;
 }
 
 a:visited {
-	color: #666;
+	color: #1B84F7;
 }
 
 ul { list-style-type:none; }
