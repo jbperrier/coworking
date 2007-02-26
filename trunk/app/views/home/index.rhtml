@@ -1,0 +1,20 @@
+<div class="yui-g">
+	<div class="yui-u first">
+		<h2>Spaces</h2>
+		<h4>Find a space within <%= text_field :miles, :miles, :size => 3 %> miles of <%= text_field :zip, :zip, :size => 5 %> <%= submit_tag 'Locate' %></h4>
+		<div class="rule"></div>
+		<% for space in @spaces %>
+			<h3><%= link_to space.name, "/spaces/view/#{space.id}" %></h3>
+			<% for event in space.events %>
+				<h4><%= link_to event.name, "/events/view/#{event.id}" %> on <%= event.display_date %></h4>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="yui-u">
+		<h3><%= link_to 'log in', "/account/login" %></h3>
+		<h3>People</h3>
+		<% for user in @users %>
+			<h4><%= link_to user.login, "/users/view/#{user.id}" %></h4>
+		<% end %>
+	</div>
+</div>

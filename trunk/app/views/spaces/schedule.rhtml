@@ -1,0 +1,32 @@
+<h2>Schedule Time at <%= @space.name %></h2>
+<h3 style="color: blue;"><%= flash[:notice] %></h3>
+<div class="yui-g">
+	<div class="yui-u first">
+		<% form_for :reservation, :url => {:controller => :reservations, :action => 'create', :id => @space.id } do |f| %>
+			<h3>Date</h3>
+			<%= date_select(:reservation, :date) %>
+			<br /><br />
+			<%= submit_tag 'Reserve' %>
+		<% end %>
+	</div>
+	<div class="yui-u">
+		<% 7.times do |i| %>
+			<% reservations = Reservation.find(:all, :conditions => ["date = ? and space_id = ?", Date.today + i, @space.id]) %>
+			<% if reservations.size > 0 && reservations.size < @space.capacity %>
+				<h3 style="color: blue;"><%= Date.today + i %></h3>
+				<% reservations.each do |reservation| %>
+					<%= reservation.user.login %><br />
+				<% end %>
+			<% elsif reservations.size == @space.capacity %>
+				<h3 style="color: red;"><%= Date.today + i %></h3>
+				<h3>(full)</h3>
+				<% reservations.each do |reservation| %>
+					<%= reservation.user.login %><br />
+				<% end %>
+			<% else %>
+				<h3 style="color: blue;"><%= Date.today + i %></h3>
+				<em>No Reservations.</em>
+			<% end %>
+		<% end %>
+	</div>
+</div>

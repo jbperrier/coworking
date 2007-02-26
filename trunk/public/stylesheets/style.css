@@ -1,0 +1,37 @@
+body {
+	font-family: arial;
+	font-size: 75%;
+}
+
+h1,h2,h3 {
+	font-family: georgia;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+.rule {
+	border-top: 1px solid #ccc;
+	width: 100%;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+
+a {
+	color: #666;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000;
+}
+
+a:visited {
+	color: #666;
+}
+
+ul { list-style-type:none; }
+ul li { list-style-type:none; }
+
+#map {
+	border: 1px solid #666;
+}

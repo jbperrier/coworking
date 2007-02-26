@@ -1,0 +1,7 @@
+<h2>Join <%= @space.name %></h2>
+<% form_for :user, :url => {:action => 'join', :id => @space.id } do |f| %>
+	<h3>Send a message to the site owner asking to join. They will follow up with an email and further instructions.</h3>
+	<textarea name="note" rows="10" cols="65"></textarea>
+	<br /><br />
+	<%= submit_tag 'Send' %>
+<% end %>

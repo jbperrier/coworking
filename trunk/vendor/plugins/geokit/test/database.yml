@@ -1,0 +1,12 @@
+mysql:
+  adapter: mysql
+  host: localhost
+  username: root
+  password:
+  database: acts_as_mappable_plugin_test
+postgresql:
+  adapter: postgresql
+  host: localhost
+  username: root
+  password: 
+  database: acts_as_mappable_plugin_test

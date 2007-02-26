@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Coworking Community Manager</title>
+		<%= javascript_include_tag 'jquery'%>
+		<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAp3PV0BNeNyRYDZ36D-FVwBRygTfTQWrasUG65-9lrppCOXwEVBSx7P6PC4jyI73wJQguCueGoN-bsA" type="text/javascript"></script>
+		<%= stylesheet_link_tag 'style' %>
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.0/build/grids/grids-min.css">
+	</head>
+	<body onload="load()" onunload="GUnload()">
+		
+		<div id="doc" class="yui-t7"><!-- "doc" here for example only; use any page width -->			
+			<div id="hd">
+				<h1><%= link_to 'Coworking Community Manager', '/' %></h1>
+				<em>Coworking is a movement to create cafe-like community/collaboration spaces for developers, writers and independents.</em>
+			</div>
+			<div id="bd">
+				<div id="yui-main">
+					<div class="yui-b">
+						<%= @content_for_layout %>
+					</div>
+				</div>
+			</div>
+			<div id="ft">
+				<div class="rule"></div>
+				&copy; 2007 | <%= link_to 'coworking blog', 'http://coworking.info' %>
+			</div>
+		</div>
+	</body>
+</html>

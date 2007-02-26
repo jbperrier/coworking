@@ -1,0 +1,4 @@
+<h2>All Events</h2>
+<% for event in @events %>
+	<%= link_to event.name, "/events/view/#{event.id}" %><br />
+<% end %>
