@@ -35,3 +35,12 @@ ul li { list-style-type:none; }
 #map {
 	border: 1px solid #666;
 }
+
+.username {
+	float: left;
+	padding-right: 0.25em;
+}
+
+.clear {
+	clear: both;
+}

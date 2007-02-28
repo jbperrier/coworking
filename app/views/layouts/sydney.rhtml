@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Coworking Community Manager</title>
+		<%= javascript_include_tag 'jquery'%>
+		<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAp3PV0BNeNyRYDZ36D-FVwBRygTfTQWrasUG65-9lrppCOXwEVBSx7P6PC4jyI73wJQguCueGoN-bsA" type="text/javascript"></script>
+		<%= stylesheet_link_tag 'base' %>
+		<%= stylesheet_link_tag 'neopolitan' %>
+		
+		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.2.0/build/grids/grids-min.css">
+	</head>
+	<body onload="load()" onunload="GUnload()">
+		<div id="wrapper">
+			<div id="container">
+				<div id="header">
+					<h1><%= link_to 'Coworking Community Manager', '/' %><br />
+					<span class="tagline">Coworking is a movement to create cafe-like workspaces for independents.</span></h1>		
+				</div>
+				<div id="content">
+					<%= @content_for_layout%>
+				</div>
+			</div>
+		</div>
+		<div id="footer_wrapper">
+			<div id="footer">
+				<div class="footer_block">
+					<h3>Navigation</h3>
+					<ul>
+						<li>Spaces</li>
+						<li>Events</li>
+						<li>People</li>
+					</ul>
+				</div>
+				<div class="footer_block center">
+					<h3>Coworking Links</h3>
+					<ul>
+						<li><a href="http://blog.coworking.info/">Blog</a></li>
+						<li><a href="http://coworking.pbwiki.com/">Wiki</a></li>
+						<li><a href="http://groups.google.com/group/coworking">Google Group</a></li>
+					</ul>
+				</div>
+		        <p class="copyright">Powered by <a href="http://rubyonrails.org">Ruby on Rails</a>. Sydney theme by <a href="http://www.lukeredpath.co.uk">Luke Redpath</a>.</p>
+			</div>
+		</div>
+	</body>
+</html>

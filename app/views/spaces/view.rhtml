@@ -30,9 +30,9 @@
 	    </script>
 	    <div id="map" style="width: 350px; height: 300px"></div>
 		<h3>Members</h3>
-		<% for user in @space.users %>
-			<% if user.status == 'approved' %>
-				<h4><%= user.login %></h4>
+		<% for @user in @space.users %>
+			<% if @user.status == 'approved' %>
+				<%= render :partial => '/users/user' %>
 			<% end %>
 		<% end %>
 	</div>
