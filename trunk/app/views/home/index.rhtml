@@ -13,8 +13,8 @@
 	<div class="yui-u">
 		<h3><%= link_to 'log in', "/account/login" %></h3>
 		<h3>People</h3>
-		<% for user in @users %>
-			<h4><%= link_to user.login, "/users/view/#{user.id}" %></h4>
+		<% for @user in @users %>
+			<%= render :partial => '/users/user' %>
 		<% end %>
 	</div>
 </div>

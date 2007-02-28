@@ -1,0 +1,450 @@
+/* =layout 
+-----------------------------------------------------------------------------*/
+
+* {
+	margin: 0; padding: 0;
+}
+
+body {
+	margin: 0; padding: 0;
+	font-size: 68%;
+	text-align: center;
+	border-top-style: solid;
+	border-top-width: .5em;
+}
+
+#wrapper {
+
+}
+
+#container {
+	background: white;
+	text-align: left;
+	margin: 0 auto;
+	width: 78em;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+#header {
+	padding: 3em 5em 0em;
+	text-align: center;
+}
+
+#content {
+	padding: 0 5em 3em;
+}
+
+#latest_entry {
+	margin: 0 0 2em;
+}
+
+#latest_release {
+	text-align: center;
+	font-size: 1.4em;
+	margin: 0 0 2em; padding: .5em;
+}
+
+#latest_release p {
+
+}
+
+#footer_wrapper {
+	background-image: url(../images/footer_bg.gif);
+	background-repeat: repeat-x;
+	background-position: 0 -3px;
+}
+
+#footer {
+	font-family: Helvetica, Arial, sans-serif;
+	background: url(../images/footer_bg.gif) repeat-x 0 -3px;
+	margin: 0 auto; padding: 2em 5em;
+	width: 68em; min-height: 10em;
+	text-align: left;
+	border-top-width: 2em;
+	border-top-style: solid;
+}
+
+#footer div.footer_block {
+	width: 33em;
+	float: left;
+	padding: 0 0 2em;
+}
+
+#footer div.footer_block.center {
+	margin: 0 0 0 2em;
+}
+
+/* =typography 
+-----------------------------------------------------------------------------*/
+
+h1 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 4em;
+	letter-spacing: -3px;
+	margin: 0 0 .5em; padding: 0;
+}
+
+h1 a:link,
+h1 a:visited,
+h1 a:hover {
+
+}
+
+h1 span.tagline {
+	font-size: 60%;
+	letter-spacing: -2px;
+}
+
+h2 {
+	font-size: 2.2em;
+	margin: 0 0 .8em;
+}
+
+h2 img {
+	vertical-align: middle;
+}
+
+h3 {
+    font-size: 1.8em;
+	margin: 0 0 .6em;
+}
+
+h4 {
+	font-size: 1.2em;
+	line-height: 1.2em;
+	margin: 0 0 .2em;
+}
+
+p {
+	font-size: 1.4em;
+	line-height: 1.4em;
+}
+
+#content p code {
+  font-size: 1em;
+}
+
+pre {
+  margin: 1.5em 0 !important;
+}
+
+p code {
+	font-size: 1em;
+}
+
+a:link {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:visited {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+p.overview {
+	font-size: 1.8em;
+	line-height: 1.2;
+  text-align: center;
+  margin: 0 0 2em; padding: 0;
+}
+
+p.standout {
+	text-align: center;
+	font-size: 1.8em;
+}
+
+#footer p.copyright {
+  font-size: 1.1em;
+  text-align: center;
+  clear: both;
+  color: #666;
+}
+
+#content ul {
+  margin: 0 0 2em; padding: 0 0 0 2.5em;
+  font-size: 1.4em;
+}
+
+#content ul li {
+  margin: 0 0 .8em; padding: 0;
+  line-height: 1.3;
+}
+
+#content a img {
+	border: none;
+}
+
+#latest_entry h3 {
+	margin: 0 0 .3em;
+}
+
+#latest_entry p {
+	margin: 0 0 .5em;
+	font-size: 1.6em;
+}
+
+#latest_entry p.post_meta {
+	font-size: 1.2em;
+}
+
+#footer p {
+	font-size: 1.4em;
+}
+
+#footer {
+
+}
+
+#footer a:link,
+#footer a:visited {
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#footer h3 {
+	margin: 0 0 .3em;
+	font-size: 1.2em;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+#footer ul {
+	list-style: none;
+}
+
+#footer li {
+	margin: 0 0 .3em; padding: .3em 0;
+  border-bottom-width: 1px;
+	border-bottom-style: solid;
+	font-size: 1.1em;
+}
+
+/* =entry list
+-----------------------------------------------------------------------------*/
+
+#content ul.entry_list {
+	list-style: none;
+	margin: .5em 0 3em; padding: 0;
+}
+
+#content ul.entry_list li {
+	margin: 0; padding: .5em 0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	position: relative;
+	font-size: .8em;
+}
+
+#content ul.entry_list li span.post_meta {
+	position: absolute;
+	top: 0; right: 0;
+	padding: .5em 0;
+}
+
+/* =article
+-----------------------------------------------------------------------------*/
+
+div.article h2 {
+	font-size: 2.2em;
+	margin: 1em 0 .5em; padding: 0;
+}
+
+div.article h2 span.post_date {
+}
+
+div.article h3 {
+	font-size: 1.6em;
+	margin: 0 0 .3em;
+}
+
+div.article p {
+	font-size: 1.4em;
+	line-height: 1.4;
+	margin: 0 0 1em;
+}
+
+div.article pre {
+	margin: 0 0 1em; padding: 1em;
+	font-size: 1.5em;
+  border-bottom-width: 4px;
+	border-bottom-style: solid;
+	overflow: auto;
+}
+
+div.article p.post_meta {
+	font-size: 1.2em;
+  border-bottom-top: 1px;
+	border-bottom-top: solid;
+	margin: 0 0 2em; padding: .5em 0 0;
+}
+
+code {
+	font-family: Monaco, "Courier New", monospace;
+}
+
+/* =comments
+-----------------------------------------------------------------------------*/
+
+#comments {
+	padding: 2em;
+}
+
+#comment-form {
+	margin: 0 0 2em; padding: 2em;
+	border-bottom-width: 4px;
+	border-bottom-style: solid;
+}
+
+div.comment {
+	margin: 0 0 2em; padding: 0 0 1em;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+div.comment h3 {
+	font-size: 1.2em;
+}
+
+/* =form styles
+-----------------------------------------------------------------------------*/
+
+form {
+	margin: 0; padding: 0;
+}
+
+label {
+	display: block;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+input, textarea {
+	margin: .2em 0 1em; padding: .1em;
+}
+
+textarea {
+	height: 10em;
+}
+
+input.submit {
+	width: auto;
+}
+
+
+/* =code highlighting
+-----------------------------------------------------------------------------*/
+
+/** RUBY **/
+#content code.ruby span.comment {
+
+}
+
+#content code.ruby span.string {
+
+}
+
+#content code.ruby span.brackets {
+	
+}
+
+#content code.ruby span.symbol {
+
+}
+
+#content code.ruby span.keywords {
+
+}
+
+/** YAML **/
+#content code.ruby span.key {
+
+}
+
+/** JAVASCRIPT **/
+
+/** HTML **/
+#content code.html span.tag {
+
+}
+
+#content code.html span.attribute {
+
+}
+
+#content code.html span.string {
+
+}
+
+#content code.html span.comment {
+
+}
+
+#content code.html span.doctype {
+
+}
+
+
+/* =features
+-----------------------------------------------------------------------------*/
+
+div.plugin_feature {
+	margin: 0 0 2em; padding: .5em 31em 2em 0;
+	position: relative;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+div.plugin_feature.alt {
+	padding: .5em 0 .5em 32em;
+}
+
+div.plugin_feature h4 {
+	font-size: 1.6em;
+	margin: 0 0 .5em;
+}
+
+div.plugin_feature p {
+	font-size: 1.4em;
+	line-height: 1.4;
+}
+
+div.plugin_feature p.plugin_feature_image {
+	position: absolute;
+	top: 0; right: 0;
+}
+
+div.plugin_feature.alt p.plugin_feature_image {
+	top: 0; left: 0;
+}
+
+p.requires {
+  margin-top: .5em;
+  font-size: 85%;
+}
+
+/* =misc
+-----------------------------------------------------------------------------*/
+
+#map {
+	border: 1px solid #666;
+	margin-bottom: 1em;
+}
+
+.username {
+	float: left;
+	padding-right: 0.25em;
+}
+
+.clear {
+	clear: both;
+}

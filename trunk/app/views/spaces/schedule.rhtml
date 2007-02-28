@@ -15,14 +15,18 @@
 			<% if reservations.size > 0 && reservations.size < @space.capacity %>
 				<h3 style="color: blue;"><%= Date.today + i %></h3>
 				<% reservations.each do |reservation| %>
-					<%= reservation.user.login %><br />
+					<% @user = reservation.user %>
+					<%= render :partial => '/users/user' %>
 				<% end %>
+				<div class="clear"></div>
 			<% elsif reservations.size == @space.capacity %>
 				<h3 style="color: red;"><%= Date.today + i %></h3>
 				<h3>(full)</h3>
 				<% reservations.each do |reservation| %>
-					<%= reservation.user.login %><br />
+					<% @user = reservation.user %>
+					<%= render :partial => '/users/user' %>
 				<% end %>
+				<div class="clear"></div>
 			<% else %>
 				<h3 style="color: blue;"><%= Date.today + i %></h3>
 				<em>No Reservations.</em>

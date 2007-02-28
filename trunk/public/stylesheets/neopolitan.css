@@ -1,0 +1,222 @@
+/* sydney color scheme: neopolitan
+ * Author: Luke Redpath
+-----------------------------------------------------------------------------*/
+
+/* =layout 
+-----------------------------------------------------------------------------*/
+
+* {
+	margin: 0; padding: 0;
+}
+
+body {
+	background: #222;
+	border-top-color: #666;
+}
+
+#wrapper {
+	background: #eee;
+}
+
+#container {
+	background: white;
+}
+
+#latest_release {
+	background: #DE356B;
+}
+
+#latest_release p {
+	color: #fff;
+}
+
+#footer_wrapper {
+	background-color: #222;
+}
+
+#footer {
+	color: #fff;
+	border-top-color: #fff;
+}
+
+/* =typography 
+-----------------------------------------------------------------------------*/
+
+h1 a:link,
+h1 a:visited,
+h1 a:hover {
+	color: #000;
+}
+
+h1 span.tagline {
+	color: #ccc;
+}
+
+h2 {
+	color: #999;
+}
+
+p {
+	color: #333;
+}
+
+a:link {
+	color: #1B84F7;
+}
+
+a:visited {
+	color: #1B84F7;
+}
+
+a:hover {
+	color: #1B84F7;
+	text-decoration: underline;
+}
+
+p.overview {
+	color: #555;
+}
+
+#latest_entry p.post_meta {
+	color: #999;
+}
+
+#footer {
+	color: #fff;
+}
+
+#footer a:link,
+#footer a:visited {
+	color: #ddd;
+}
+
+#footer a:hover {
+	color: #ccc;
+	text-decoration: underlin;
+}
+
+#footer h3 {
+	color: #999;
+	border-bottom-color: #444;
+}
+
+#footer li {
+	border-bottom-color: #444;
+}
+
+/* =entry list
+-----------------------------------------------------------------------------*/
+
+#content ul.entry_list li {
+	border-bottom-color: #ddd;
+	color: #999;
+}
+
+/* =article
+-----------------------------------------------------------------------------*/
+
+div.article h2 {
+	color: #000;
+}
+
+div.article h2 span.post_date {
+	color: #ccc;
+}
+
+div.article pre {
+	background: #222;
+	color: #eee;
+	border-bottom-color: #000;
+}
+
+div.article p.post_meta {
+	border-top-color: #ccc;
+	color: #666;
+}
+
+/* =comments
+-----------------------------------------------------------------------------*/
+
+#comments {
+	background: #eee;
+}
+
+#comment-form {
+	background: #FFEBF5;
+	border-bottom-color: #C47CA0;
+}
+
+div.comment {
+	border-bottom-color: #ccc;
+}
+
+div.comment h3 {
+	color: #666;
+}
+
+/* =form styles
+-----------------------------------------------------------------------------*/
+
+label {
+	color: #9E3C6D;
+}
+
+/* =code highlighting
+-----------------------------------------------------------------------------*/
+
+/** RUBY **/
+#content code.ruby span.comment {
+	color: #BD48B3;
+}
+
+#content code.ruby span.string {
+	color: #99FF00;
+}
+
+#content code.ruby span.brackets {
+	
+}
+
+#content code.ruby span.symbol {
+	color: #6BCFF7;
+}
+
+#content code.ruby span.keywords {
+	color: #FF8400;
+}
+
+/** YAML **/
+#content code.ruby span.key {
+  color: #FF8400;
+}
+
+/** JAVASCRIPT **/
+
+/** HTML **/
+#content code.html span.tag {
+	color: #fff;
+}
+
+#content code.html span.attribute {
+	color: #FFD500;
+}
+
+#content code.html span.string {
+	color: #99FF00;
+}
+
+#content code.html span.comment {
+	color: #999;
+}
+
+#content code.html span.doctype {
+	color: #D7FF80;
+}
+
+
+/* =features
+-----------------------------------------------------------------------------*/
+
+div.plugin_feature {
+	border-bottom-color: #ddd;
+}
