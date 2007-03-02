@@ -15,4 +15,10 @@ class ReservationsController < ApplicationController
       render :layout => false, :inline => '<h4>Reservation failed. Space is full that day.</h4>'
     end
   end
+  
+  def day
+    space = Space.find(params[:space])
+    reservations = Reservation.find(:all, :conditions => ['space_id = ? and date = ?', params[:space], "2007-3-#{params[:date]}"])
+    render :layout => false, :inline => reservations.size.to_s
+  end
 end

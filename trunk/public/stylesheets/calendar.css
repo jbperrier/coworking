@@ -3,11 +3,10 @@
 div.calendar { position: relative; }
 
 .calendar, .calendar table {
-  border: 1px solid #206A9B;
-  font-size: 11px;
+  border: 1px solid #666;
   color: #000;
   cursor: default;
-  background: #F1F8FC;
+  background: #eee;
   font-family: tahoma,verdana,sans-serif;
 }
 
@@ -83,7 +82,7 @@ div.calendar { position: relative; }
 .calendar table .wn {
   padding: 2px 3px 2px 2px;
   border-right: 1px solid #000;
-  background: #C7E1F3;
+  background: #eee;
 }
 
 .calendar tbody .rowhilite td {
