@@ -1,9 +1,31 @@
+<script type="text/javascript">
+	//<![CDATA[
+	function load() {
+	  if (GBrowserIsCompatible()) {
+	    var map = new GMap2(document.getElementById("map"));
+		map.addControl(new GSmallMapControl());
+		map.addControl(new GMapTypeControl());
+		<% for @space in @spaces %>
+			var point<%= @space.id %> = new GLatLng(<%= GoogleGeocoder.geocode(@space.address).ll %>);
+	        map.setCenter(point<%= @space.id %>, 4);
+			map.addOverlay(createMarker(point<%= @space.id %>, "<%= @space.name %>"));	
+		<% end %>
+	  }
+	}
+	function createMarker(point, name) {
+	  var marker = new GMarker(point);
+	  GEvent.addListener(marker, "click", function() {
+	    marker.openInfoWindowHtml("<h3>" + name + "</h3>");
+	  });
+	  return marker;
+	}
+	//]]>
+</script>
+<div id="map" style="width: 739px; height: 200px"></div>
 <div class="yui-g">
 	<div class="yui-u first">
 		<h2>Spaces</h2>
-		<h4>Find a space within <%= text_field :miles, :miles, :size => 3 %> miles of <%= text_field :zip, :zip, :size => 5 %> <%= submit_tag 'Locate' %></h4>
 		<% for space in @spaces %>
-			<div class="rule"></div>
 			<h3><%= link_to space.name, "/spaces/view/#{space.id}" %></h3>
 			<% for event in space.events %>
 				<h4><%= link_to event.name, "/events/view/#{event.id}" %> on <%= event.display_date %></h4>
@@ -11,8 +33,10 @@
 		<% end %>
 	</div>
 	<div class="yui-u">
-		<h3><%= link_to 'log in', "/account/login" %></h3>
-		<h3>People</h3>
+		<% if !logged_in? %>
+			<h3><%= link_to 'log in', "/account/login" %></h3>
+		<% end %>
+		<h2>Coworkers</h2>
 		<% for @user in @users %>
 			<%= render :partial => '/users/user' %>
 		<% end %>

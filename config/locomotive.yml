@@ -1,6 +1,6 @@
 ---
 mode: development
 runs_at_launch: 0
-identifier: Coworking
-port: 3002
-bundle: /Applications/Locomotive2/Bundles/rmagickRailsJan2007_x86.locobundle
+identifier: coworking
+port: 3003
+bundle: /Applications/Locomotive2/Bundles/standardRailsJan2007.locobundle

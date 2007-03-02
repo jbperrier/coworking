@@ -1,34 +1,26 @@
 <h2><%= @space.name %></h2>
-<h3><%= @space.hours %>, <%= @space.address %></h3>
 <h3 style="color: blue;"><%= flash[:notice] %></h3>
+<h4><%= @space.hours %>, <%= @space.address %></h4>
 <div class="yui-g">
 	<div class="yui-u first">
 		<h3>Details</h3>
 		<%= textilize(@space.description) %>
 	</div>
 	<div class="yui-u">
-		<h3><%= link_to "Join", "/spaces/join/#{@space.id}"%></h3>
-		<h3><%= link_to "Schedule", "/spaces/schedule/#{@space.id}"%></h3>
-		<h3>Events</h3>
-		<% for event in @space.events %>
-			<h4><%= link_to event.name, "/events/view/#{event.id} "%> on <%= event.display_date %></h4>
-		<% end %>
 		<h3>Map</h3>
-		<script type="text/javascript">
-	    //<![CDATA[
-	    function load() {
-	      if (GBrowserIsCompatible()) {
-	        var map = new GMap2(document.getElementById("map"));
-			map.addControl(new GSmallMapControl());
-			map.addControl(new GMapTypeControl());
-			var point = new GLatLng(<%= GoogleGeocoder.geocode(@space.address).ll %>);
-	        map.setCenter(point, 13);
-			map.addOverlay(new GMarker(point));
-	      }
-	    }
-	    //]]>
-	    </script>
 	    <div id="map" style="width: 350px; height: 300px"></div>
+		<h3>Schedule</h3>
+		<% if logged_in? %>
+			<div style="margin-bottom: 1em; width: 350px;" id="calendar-container"></div>
+			<h4><div id="reserve">Click on a date to reserve space.</div></h4>
+		<% else %>
+			<p>You must be <%= link_to 'logged in', "/account/login" %> to make reservations.</p>
+		<% end %>
+	</div>
+</div>
+<div class="rule"></div>
+<div class="yui-g">
+	<div class="yui-u first">
 		<h3>Members</h3>
 		<% for @user in @space.users %>
 			<% if @user.status == 'approved' %>
@@ -36,4 +28,51 @@
 			<% end %>
 		<% end %>
 	</div>
+	<div class="yui-u">
+		<h3>Join</h3>
+	    <% if logged_in? %>
+			<% form_for :user, :url => {:action => 'join', :id => @space.id } do |f| %>
+				<h4>Send a message to the site owner asking to join. They will follow up with an email and further instructions.</h4>
+				<textarea name="note" rows="10" style="width: 350px;"></textarea>
+				<br /><br />
+				<%= submit_tag 'Send' %>
+			<% end %>
+		<% else %>
+	      <p>You must be <%= link_to 'logged in', "/account/login" %> to apply to join this space.</p>
+	    <% end %>
+		
+	</div>
 </div>
+
+<script type="text/javascript">
+	//<![CDATA[
+	function load() {
+		if (GBrowserIsCompatible()) {
+			var map = new GMap2(document.getElementById("map"));
+			map.addControl(new GSmallMapControl());
+			map.addControl(new GMapTypeControl());
+			var point = new GLatLng(<%= GoogleGeocoder.geocode(@space.address).ll %>);
+			map.setCenter(point, 13);
+			map.addOverlay(new GMarker(point));
+		}
+	};
+	
+	function reserve(y,m,d) {
+		$.get('/reservations/create', {'reservation[date(1i)]': y, 'reservation[date(2i)]': m, 'reservation[date(3i)]': d, space: <%= @space.id %> }, function(html) {
+			$('#reserve').html(html);
+		});
+	};
+
+	function dateChanged(calendar) {
+			if (calendar.dateClicked) {
+			var y = calendar.date.getFullYear();
+			var m = calendar.date.getMonth();     // integer, 0..11
+			var d = calendar.date.getDate();      // integer, 1..31
+			$('#reserve').html("Are you sure you want to make a reservation for " + m + "/" + d + "?<br /><a onclick='reserve(" + y + "," + m + "," + d + ")'>yes</a> or <a onclick='$(\"#reserve\").fadeOut(200);'>no</a>");
+			$('#reserve').fadeIn(200);
+		}
+	};
+
+	Calendar.setup({flat: "calendar-container", flatCallback : dateChanged});
+	//]]>
+</script>

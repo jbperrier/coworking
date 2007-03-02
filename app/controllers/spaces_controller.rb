@@ -28,22 +28,8 @@ class SpacesController < ApplicationController
     @space = Space.find(params[:id])
     if @request.method == :post
       @space.users.push_with_attributes(current_user, :status => 'pending', :note => params[:note])
-      begin
-        Twitter::Base.new('phil@coutorture.com', 'coworking').update("#{@user.login} wants to join #{@space.name}")
-      rescue
-        #twitter will raise an exception but still post.
-      end
+      #Twitter.post("#{@user.login} wants to join #{@space.name}")
       flash[:notice] = 'Your request to join is pending approval.'
-      redirect_to :action => 'view', :id => @space.id
-    end
-  end
-  
-  def schedule
-    @user = current_user
-    @space = Space.find(params[:id])
-    member = User.find_by_sql("select * from spaces_users where user_id = #{@user.id} and space_id = #{@space.id} and status = 'approved'")
-    if member.size < 1
-      flash[:notice] = 'You are not a member of this space.'
       redirect_to :action => 'view', :id => @space.id
     end
   end

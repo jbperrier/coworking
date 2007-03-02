@@ -13,11 +13,7 @@ class EventsController < ApplicationController
   
   def create
     event = Event.create!(params[:event])
-    begin
-      Twitter::Base.new('phil@coutorture.com', 'coworking').update("#{event.name} @ #{event.space.name} on #{event.date}")
-    rescue
-      #twitter will raise an exception but still post.
-    end
+    Twitter.post("#{event.name} @ #{event.space.name} on #{event.date}")
     redirect_to :action => 'index'
   end
   
