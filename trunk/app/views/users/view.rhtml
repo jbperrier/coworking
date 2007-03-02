@@ -1,0 +1,14 @@
+<h1><%= @user.login %></h1>
+<div class="yui-g">
+	<div class="yui-u first">
+		<h2>Spaces</h2>
+		<% for space in @user.spaces %>
+			<% if space.status == 'approved' %>
+				<h3><%= link_to space.name, "/spaces/view/#{space.id}" %></h3>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="yui-u">
+	
+	</div>
+</div>
