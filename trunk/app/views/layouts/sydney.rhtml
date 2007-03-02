@@ -29,12 +29,11 @@
 		<div id="footer_wrapper">
 			<div id="footer">
 				<div class="footer_block">
-					<h3>Navigation</h3>
-					<ul>
-						<li>Spaces</li>
-						<li>Events</li>
-						<li>People</li>
-					</ul>
+					<% if !logged_in? %>
+						<%= link_to 'log in', "/account/login" %>
+					<% else %>
+						logged in as <%= current_user.login %>
+					<% end %>
 				</div>
 				<div class="footer_block center">
 					<h3>Coworking Links</h3>
