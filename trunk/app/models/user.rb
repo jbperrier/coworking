@@ -14,6 +14,15 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many   :spaces
   has_many                  :reservations
   before_save :encrypt_password
+  
+  def member?(spaceid)
+    for space in self.spaces
+      if space.id == spaceid
+        return true
+      end
+    end
+    return false
+  end
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)

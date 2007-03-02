@@ -38,7 +38,7 @@
 		<% end %>
 		<h2>Coworkers</h2>
 		<% for @user in @users %>
-			<%= render :partial => '/users/user' %>
+			<h3><%= link_to @user.login, "/users/view/#{@user.id}" %></h3>
 		<% end %>
 	</div>
 </div>

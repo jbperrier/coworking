@@ -10,7 +10,7 @@
 		<h3>Map</h3>
 	    <div id="map" style="width: 350px; height: 300px"></div>
 		<h3>Schedule</h3>
-		<% if logged_in? %>
+		<% if logged_in? and current_user.member?(@space.id) %>
 			<div style="margin-bottom: 1em; width: 350px;" id="calendar-container"></div>
 			<h4><div id="reserve">Click on a date to reserve space.<br />
 				<span style="color: #ccffcc">green</span> dates are active<br />
@@ -18,7 +18,7 @@
 				<span style="color: #ffcccc">red</span> dates are full<br />
 				</div></h4>
 		<% else %>
-			<p>You must be <%= link_to 'logged in', "/account/login" %> to make reservations.</p>
+			<p>You must be <%= link_to 'logged in', "/account/login" %> and a member of this space to make reservations.</p>
 		<% end %>
 	</div>
 </div>
