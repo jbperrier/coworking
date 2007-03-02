@@ -126,7 +126,7 @@ Calendar.setup = function (params) {
 		if (typeof params.flat == "string")
 			params.flat = document.getElementById(params.flat);
 		if (!params.flat) {
-			alert("Calendar.setup:\n  Flat specified but can't find parent.");
+			//alert("Calendar.setup:\n  Flat specified but can't find parent.");
 			return false;
 		}
 		var cal = new Calendar(params.firstDay, params.date, params.onSelect || onSelect);

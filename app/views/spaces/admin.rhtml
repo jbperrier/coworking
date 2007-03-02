@@ -1,9 +1,11 @@
 <h2>Pending Memberships for <%= @space.name %></h2>
 
 <% for user in @space.users %>
-	<div class="rule"></div>
-	<h3><%= user.email %></h3>
-	<h4><%= link_to 'approve', :url => {:controller => 'users', :action => 'approve', :space => @space.id, :user => user.id} %> or 
-		<%= link_to 'reject', :url => {:controller => 'users', :action => 'reject', :space => @space.id, :user => user.id} %></h4>
-	<%= user.note %>
+	<% if user.status == "pending" %>
+		<div class="rule"></div>
+		<h3><%= user.email %></h3>
+		<h4><%= link_to 'approve', :url => {:controller => 'users', :action => 'approve', :space => @space.id, :user => user.id} %> or 
+			<%= link_to 'reject', :url => {:controller => 'users', :action => 'reject', :space => @space.id, :user => user.id} %></h4>
+		<%= user.note %>
+	<% end %>
 <% end %>
