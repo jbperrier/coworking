@@ -7,7 +7,7 @@ ActiveRecord::Schema.define(:version => 11) do
   create_table "events", :force => true do |t|
     t.column "name",        :string
     t.column "description", :text
-    t.column "date",        :datetime
+    t.column "date",        :date
     t.column "space_id",    :integer
   end
 
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 11) do
   create_table "spaces", :force => true do |t|
     t.column "name",        :string
     t.column "address",     :string
-    t.column "hours",       :text
     t.column "description", :text
+    t.column "hours",       :string
     t.column "capacity",    :integer
   end
 
