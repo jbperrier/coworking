@@ -12,7 +12,11 @@
 		<h3>Schedule</h3>
 		<% if logged_in? %>
 			<div style="margin-bottom: 1em; width: 350px;" id="calendar-container"></div>
-			<h4><div id="reserve">Click on a date to reserve space.</div></h4>
+			<h4><div id="reserve">Click on a date to reserve space.<br />
+				<span style="color: #ccffcc">green</span> dates are active<br />
+				<span style="color: #ccccff">blue</span> dates are empty<br />
+				<span style="color: #ffcccc">red</span> dates are full<br />
+				</div></h4>
 		<% else %>
 			<p>You must be <%= link_to 'logged in', "/account/login" %> to make reservations.</p>
 		<% end %>
@@ -45,7 +49,6 @@
 </div>
 
 <script type="text/javascript">
-	//<![CDATA[
 	function load() {
 		if (GBrowserIsCompatible()) {
 			var map = new GMap2(document.getElementById("map"));
@@ -58,7 +61,7 @@
 	};
 	
 	function reserve(y,m,d) {
-		$.get('/reservations/create', {'reservation[date(1i)]': y, 'reservation[date(2i)]': m, 'reservation[date(3i)]': d, space: <%= @space.id %> }, function(html) {
+		$.get('/reservations/create', {'reservation[date(1i)]': y, 'reservation[date(2i)]': (m+1), 'reservation[date(3i)]': d, space: <%= @space.id %> }, function(html) {
 			$('#reserve').html(html);
 		});
 	};
@@ -68,11 +71,31 @@
 			var y = calendar.date.getFullYear();
 			var m = calendar.date.getMonth();     // integer, 0..11
 			var d = calendar.date.getDate();      // integer, 1..31
-			$('#reserve').html("Are you sure you want to make a reservation for " + m + "/" + d + "?<br /><a onclick='reserve(" + y + "," + m + "," + d + ")'>yes</a> or <a onclick='$(\"#reserve\").fadeOut(200);'>no</a>");
+			$('#reserve').html("Are you sure you want to make a reservation for " + (m+1) + "/" + d + "?<br /><a onclick='reserve(" + y + "," + m + "," + d + ")'>yes</a> or <a onclick='$(\"#reserve\").fadeOut(200);'>no</a>");
 			$('#reserve').fadeIn(200);
 		}
 	};
 
 	Calendar.setup({flat: "calendar-container", flatCallback : dateChanged});
-	//]]>
+	
+	$(".day:not(.wn):not(name)").each(function(){ //give days unique IDs
+		$(this).attr({id: 'date' + $(this).html()})
+	});
+	
+	$(".day:not(.wn):not(name)").each(function() { //get reservation #s per day
+		var capacity = <%= @space.capacity %>;
+		var id = $(this).attr('id');
+		$.get("/reservations/day", {space: <%= @space.id %>, date: $(this).html()}, function(c){
+			if (c < capacity && c > 0) {
+				$('#' + id).css("background-color","#ccffcc");
+				$('#' + id).css("color","#000");
+			} else if (c < capacity) {
+				$('#' + id).css("background-color","#ccccff");
+				$('#' + id).css("color","#000");
+			} else {
+				$('#' + id).css("background-color","#ffcccc");
+				$('#' + id).css("color","#000");
+			}
+		});
+	});
 </script>
