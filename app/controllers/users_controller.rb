@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def icon
-    render :layout => false, :inline => Twitter.icon(params[:id])
+  def view
+    @user = User.find(params[:id])
   end
 end
