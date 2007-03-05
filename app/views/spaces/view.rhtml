@@ -28,7 +28,7 @@
 		<h3>Members</h3>
 		<% for @user in @space.users %>
 			<% if @user.status == 'approved' %>
-				<%= render :partial => '/users/user' %>
+				<h3><%= link_to @user.login, "/users/view/#{@user.id}"%>
 			<% end %>
 		<% end %>
 	</div>

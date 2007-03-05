@@ -1,11 +1,30 @@
-<h2>Pending Memberships for <%= @space.name %></h2>
+<div class="yui-g">
+	<h1><%= @space.name %> Administration</h1>
+	<div class="yui-u first">
+		<h2>Current Members</h2>
+		<% for user in @space.users %>
+			<% if user.status == "approved" %>
+				<div class="rule"></div>
+				<h3><%= user.email %> <% if user.admin == 'yes' %>(<span style="color: blue;">admin</span>)<% end %></h3>
+				<h4><%= link_to 'reject', {:controller => 'users', :action => 'reject', :space => @space.id, :user => user.id} %>
+				<% if user.admin != 'yes' %>
+					or <%= link_to 'make admin' , {:controller => 'users', :action => 'admin', :space => @space.id, :user => user.id} %>
+				<% end %>
+				</h4>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="yui-u">
+		<h2>Pending Memberships</h2>
+		<% for user in @space.users %>
+			<% if user.status == "pending" %>
+				<div class="rule"></div>
+				<h3><%= user.email %></h3>
+				<h4><%= link_to 'approve', {:controller => 'users', :action => 'approve', :space => @space.id, :user => user.id} %> or 
+					<%= link_to 'reject', {:controller => 'users', :action => 'reject', :space => @space.id, :user => user.id} %></h4>
+			<% end %>
+		<% end %>
+	</div>
+</div>
 
-<% for user in @space.users %>
-	<% if user.status == "pending" %>
-		<div class="rule"></div>
-		<h3><%= user.email %></h3>
-		<h4><%= link_to 'approve', :url => {:controller => 'users', :action => 'approve', :space => @space.id, :user => user.id} %> or 
-			<%= link_to 'reject', :url => {:controller => 'users', :action => 'reject', :space => @space.id, :user => user.id} %></h4>
-		<%= user.note %>
-	<% end %>
-<% end %>
+
