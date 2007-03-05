@@ -36,5 +36,9 @@ class SpacesController < ApplicationController
   
   def admin
     @space = Space.find(params[:id])
+    unless current_user.administers(@space.id)
+      flash[:notice] = 'You are not authorized to manage this space.'
+      redirect_to :action => 'view', :id => @space.id
+    end
   end
 end

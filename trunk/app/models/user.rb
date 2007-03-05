@@ -24,6 +24,15 @@ class User < ActiveRecord::Base
     return false
   end
 
+  def administers(spaceid)
+    for space in self.spaces
+      if space.id == spaceid and space.admin == 'yes'
+        return true
+      end
+    end
+    return false
+  end
+
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   def self.authenticate(login, password)
     u = find_by_login(login) # need to get the salt
